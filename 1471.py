@@ -1,15 +1,23 @@
-mergulhou, retornou = input().split()
-identificadores = list(map(int, input().split()))
-mergulhou = int(mergulhou)
-retornou = int(retornou)
-y = 0
-faltam = []
+# -*- coding: utf-8 -*-
 
-while y < mergulhou:
-    y = 1
-    for i in identificadores:
-        if y != i:
-            faltam.append(y)
-    y += 1
+while True:
+    try:
+        n, r = map(int, input().split())
+        v = list(map(int, input().split()))
 
-print(faltam)
+        t = []
+        f = ''
+        for i in range(1, n+1):
+            t.append(i)
+        
+        for x in t:
+            if x not in v:
+                f += str(x) + " "
+
+        if f != '':
+            print(f)
+        else:
+            print('*')
+            
+    except EOFError:
+        break
