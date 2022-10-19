@@ -1,24 +1,19 @@
-bilhetesOriginais, pessoasPresentes = input().split()
-totalBilhetes = input().split()
-bilhetesOriginais = int(bilhetesOriginais)
-pessoasPresentes = int(pessoasPresentes)
+# -*- coding: utf-8 -*-
+qtdeBilhete = [None] * 10001 
 
-for i in range(len(totalBilhetes)):
-    totalBilhetes[i] = int(totalBilhetes[i])
-
-numero = 0
-contador = 0
-repetidos = 0
-x = 0
-
-
-while x <= 10000:
-    for y in range(len(totalBilhetes)):
-        if x == totalBilhetes[y]:
-            contador += 1
-            if contador > 2:
-                repetidos += 1
-                contador = 0
-    x += 1
-
-print(repetidos)
+while True:
+    n, m = input().split()
+    n = int(n)
+    m = int(m)   
+    if n == 0 and m == 0:
+        break
+    bilhetesLidos = input().split()
+    for i in range(n+1):
+        qtdeBilhete[i] = 0 
+    for b in bilhetesLidos:
+        qtdeBilhete[int(b)] += 1
+    falsos = 0
+    for i in range(n+1):
+        if qtdeBilhete[i] > 1:
+            falsos += 1
+    print(falsos)
